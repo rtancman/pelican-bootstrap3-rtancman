@@ -13,7 +13,7 @@
     {% set BANNER_LINK_LABEL=DEFAULT_BANNER_LINK_LABEL %}
     {% set BANNER_TITLE=category %}
     {% set BANNER_SUBTITLE=CATEGORY_BANNER_SUBTITLE %}
-    {% set BANNER_IMG=CATEGORY_BANNER_IMG %}
+    {% set BANNER_IMG=category|imgbanner %}
     {% include 'includes/banner.html' %}
 {% endblock %}
 
