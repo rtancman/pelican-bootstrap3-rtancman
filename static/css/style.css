@@ -42,6 +42,19 @@ h2.logo-tagline{
     vertical-align: middle;
 }
 
+.rtc-title-white .text-vertical-center h1,
+.rtc-title-white .text-vertical-center h2{
+    color: #ffffff;
+}
+
+.rtc-title-bg-white .text-vertical-center h1,
+.rtc-title-bg-white .text-vertical-center h2{
+    background: rgb(255,255,255, 0.7); /* Fall-back for browsers that don't
+                                    support rgba */
+    background: rgba(255,255,255, 0.7);
+    margin-top: 0;
+}
+
 .text-vertical-center h1 {
     margin: 0;
     padding: 0;

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block body_class%} rtc-articles {{ article.class }}{% endblock %}
 {% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
 {% block html_lang %}{{ article.lang }}{% endblock %}
 {% block meta %}
