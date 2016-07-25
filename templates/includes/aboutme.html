@@ -1,11 +1,47 @@
-<div id="aboutme">
-    {% if AVATAR %}
-        <p>
-            <img width="100%" class="img-thumbnail" src="{{ AVATAR }}"/>
-        </p>
-    {% endif %}
-    <p>
-        <strong>About {{ AUTHOR }}</strong><br/>
-        {{ ABOUT_ME }}
-    </p>
-</div>
+<!-- About -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                {% if AVATAR %}
+                    <img width="100%" class="img-thumbnail" src="{{ AVATAR }}"/>
+                {% endif %}
+                <h2>{{ AUTHOR }}</h2>
+                <p class="lead">{{ ABOUT_ME }}</p>
+            </div>
+        </div>
+        {% if ABOUT_ME_RECOMENDS %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="carousel-aboutme" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            {% for key in ABOUT_ME_RECOMENDS_LIST %}
+                            <div class="item{% if loop.first %} active{% endif %}">
+                                {% for item in key %}
+                                <div class="col-lg-6">
+                                    <blockquote class="quote-box">
+                                        <p class="quotation-mark">“</p>
+                                        <p class="quote-text">
+                                            {{ item['text'] }}
+                                        </p>
+                                        <div class="blog-post-actions">
+                                            <p class="blog-post-bottom pull-left">{{ item['person'] }}</p>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <ol class="carousel-indicators">
+                            {% for key in ABOUT_ME_RECOMENDS_LIST %}
+                            <li data-target="#carousel-aboutme" data-slide-to="{{ loop.index0 }}"{% if loop.first %} class="active"{% endif %}></li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <!-- /.container -->
+</section>

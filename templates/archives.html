@@ -9,15 +9,31 @@
     {% endif %}
 {% endblock %}
 
+{% block banner %}
+    {% set BANNER_LOGO=False %}
+    {% set BANNER_LINK=DEFAULT_BANNER_LINK %}
+    {% set BANNER_LINK_LABEL=DEFAULT_BANNER_LINK_LABEL %}
+    {% set BANNER_SUBTITLE="Todos os artigos" %}
+    {% include 'includes/banner.html' %}
+{% endblock %}
+
 {% block content %}
     <section id="content">
-        <h1>Archives for {{ SITENAME }}</h1>
         <div id="archives">
             {% for article in dates %}
-                <p>
-                    <span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
-                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} - {{ article.subtitle }}{% endif %}</a>
-                </p>
+                <article>
+                    <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+                    {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
+                        <div class="well well-sm">
+                            {% include "includes/article_info.html" %}
+                        </div>
+                    {% endif %}
+                    <div class="summary">{{ article.summary }}
+                        {% include 'includes/comment_count.html' %}
+                        <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">mais ...</a>
+                    </div>
+                </article>
+                <hr/>
             {% endfor %}
         </div>
     </section>

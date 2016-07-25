@@ -67,32 +67,40 @@
     {% endif %}
 {% endblock %}
 
+{% block banner %}
+    {% set BANNER_LOGO=False %}
+    {% set BANNER_LINK=DEFAULT_BANNER_LINK %}
+    {% set BANNER_LINK_LABEL=DEFAULT_BANNER_LINK_LABEL %}
+    {% set BANNER_TITLE=article.title %}
+    {% set BANNER_SUBTITLE=article.summary %}
+    {% set BANNER_IMG=article.img %}
+    {% include 'includes/banner.html' %}
+{% endblock %}
+
+{% block aboutme %}
+{% endblock %}
+
+{% block map %}
+{% endblock %}
+
 {% block content %}
     <section id="content">
         <article>
-            <header class="page-header">
-                <h1>
-                    <a href="{{ SITEURL }}/{{ article.url }}"
-                       rel="bookmark"
-                       title="Permalink to {{ article.title|striptags }}">
-                        {{ article.title }}
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-                        {% include "includes/article_info.html" %}
-                    </div>
+            <div class="col-lg-9">
+                <div class="article-info">
+                    {% include "includes/article_info.html" %}
                 </div>
-                {{ article.content }}
+                <div class="article-body">
+                    {{ article.content }}
+                </div>
+                {% include 'includes/addthis.html' %}
+                {% include 'includes/shariff.html' %}
+                {% include 'includes/comments.html' %}
             </div>
-            <!-- /.entry-content -->
-            {% include 'includes/related-posts.html' %}
-            {% include 'includes/series.html' %}
-            {% include 'includes/addthis.html' %}
-            {% include 'includes/shariff.html' %}
-            {% include 'includes/comments.html' %}
+            <div class="article-nav col-lg-3">
+                {% include 'includes/related-posts.html' %}
+                {% include 'includes/series.html' %}
+            </div>
         </article>
     </section>
 

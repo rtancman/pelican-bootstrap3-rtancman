@@ -4,6 +4,16 @@
     <meta name="author" content="{{ AUTHOR }}" />
     <meta name="keywords" content="{{ tag }}" />
 {% endblock %}
+
+{% block banner %}
+    {% set BANNER_LOGO=False %}
+    {% set BANNER_LINK=DEFAULT_BANNER_LINK %}
+    {% set BANNER_LINK_LABEL=DEFAULT_BANNER_LINK_LABEL %}
+    {% set BANNER_TITLE=tag %}
+    {% set BANNER_SUBTITLE="Lista de artigos por tag" %}
+    {% include 'includes/banner.html' %}
+{% endblock %}
+
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">

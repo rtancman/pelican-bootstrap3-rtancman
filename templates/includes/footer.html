@@ -1,24 +1,45 @@
+<!-- Footer -->
 <footer>
-   <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
-      <hr>
-      <div class="row">
-         {% if articles %}
-            {% set copy_date = articles[0].date.strftime('%Y') %}
-         {% else %}
-            {% set copy_date = '' %}
-         {% endif %}
-         <div class="col-xs-10">&copy; {{ copy_date }} {{ AUTHOR }}
-            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
-            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
-            {%- if CC_LICENSE or CC_LICENSE_DERIVATIVES or CC_LICENSE_COMMERCIAL %}
-              {% from 'includes/cc-license.html' import cc_license_mark %}
-              <p><small>{{ cc_license_mark(cc_name=CC_LICENSE,derivatives=CC_LICENSE_DERIVATIVES,commercial=CC_LICENSE_COMMERCIAL,attr_markup=CC_ATTR_MARKUP,attr_props={'title':SITENAME,'name':article.author if article else AUTHOR,'url':SITEURL}) }}</small></p>
-            {% elif CUSTOM_LICENSE %}
-              <p><small>{{ CUSTOM_LICENSE }}</small></p>
-            {% endif %}
-         </div>
-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
-      </div>
-   </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h4><strong>Raffael Tancman</strong>
+                </h4>
+                <p>{{ AUTHOR_ADDRESS }}</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-phone fa-fw"></i>{{ AUTHOR_PHONE }}</li>
+                    <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:{{ AUTHOR_EMAIL }}">{{ AUTHOR_EMAIL }}</a></li>
+                </ul>
+                <br>
+                <ul class="list-inline">
+                    <li>
+                        <a href="{{ FACEBOOK_URL }}"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="{{ TWITTER_URL }}"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="{{ GITHUB_URL }}"><i class="fa fa-github fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="{{ LINKEDIN_URL }}"><i class="fa fa-linkedin fa-fw fa-3x"></i></a>
+                    </li>
+                </ul>
+                <hr class="small">
+                <p class="text-muted">Copyright &copy; {{ AUTHOR }} {{ copy_date }}</p>
+                <p class="text-muted">
+                    Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+                    <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+                    <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+                </p>
+                {%- if CC_LICENSE or CC_LICENSE_DERIVATIVES or CC_LICENSE_COMMERCIAL %}
+                {% from 'includes/cc-license.html' import cc_license_mark %}
+                <p class="text-muted">{{ cc_license_mark(cc_name=CC_LICENSE,derivatives=CC_LICENSE_DERIVATIVES,commercial=CC_LICENSE_COMMERCIAL,attr_markup=CC_ATTR_MARKUP,attr_props={'title':SITENAME,'name':article.author if article else AUTHOR,'url':SITEURL}) }}</p>
+                {% elif CUSTOM_LICENSE %}
+                <p class="text-muted">{{ CUSTOM_LICENSE }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
 </footer>

@@ -4,6 +4,17 @@
     <meta name="author" content="{{ AUTHOR }}" />
     <meta name="keywords" content="{{ category }}" />
 {% endblock %}
+
+{% block banner %}
+    {% set BANNER_LOGO=False %}
+    {% set BANNER_LINK=DEFAULT_BANNER_LINK %}
+    {% set BANNER_LINK_LABEL=DEFAULT_BANNER_LINK_LABEL %}
+    {% set BANNER_TITLE=category %}
+    {% set BANNER_SUBTITLE=CATEGORY_BANNER_SUBTITLE %}
+    {% set BANNER_IMG=CATEGORY_BANNER_IMG %}
+    {% include 'includes/banner.html' %}
+{% endblock %}
+
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">

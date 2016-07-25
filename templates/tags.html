@@ -11,6 +11,15 @@
     {% endif %}
 {% endblock %}
 
+{% block banner %}
+    {% set BANNER_LOGO=False %}
+    {% set BANNER_LINK=DEFAULT_BANNER_LINK %}
+    {% set BANNER_LINK_LABEL=DEFAULT_BANNER_LINK_LABEL %}
+    {% set BANNER_TITLE="Tags" %}
+    {% set BANNER_SUBTITLE="Lista de artigos por tag" %}
+    {% include 'includes/banner.html' %}
+{% endblock %}
+
 {% block content %}
     <section id="tags">
         <h1>Tags for {{ SITENAME }}</h1>

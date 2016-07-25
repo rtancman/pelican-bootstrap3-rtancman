@@ -1,16 +1,18 @@
 <style>
-	#banner{
-	    background-image:url("{{ SITEURL}}/{{ BANNER }}");
+	.header{
+	    background-image:url("{{ BANNER_IMG }}");
 	}
 </style>
-
-<div id="banner">
-	<div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
-		<div class="copy">
-			<h1>{{ SITENAME }}</h1>
-			{% if BANNER_SUBTITLE %}
-				<p class="intro">{{ BANNER_SUBTITLE }}</p>
-			{% endif %}
-		</div>
+<header id="top" class="header">
+	<div class="text-vertical-center">
+		<h1 class="logo">
+			{% if BANNER_LOGO %}<img src="{{ BANNER_LOGO }}" width="50px" height="50px" alt="{{ BANNER_TITLE }}" class="img-circle">{% endif %}
+			{{ BANNER_TITLE }}
+		</h1>
+		{% if BANNER_SUBTITLE %}
+			<h2 class="logo-tagline">{{ BANNER_SUBTITLE }}</h2>
+		{% endif %}
+		<br>
+		<a href="{{ BANNER_LINK }}" class="btn btn-dark btn-lg">{{ BANNER_LINK_LABEL }}</a>
 	</div>
-</div>
+</header>
